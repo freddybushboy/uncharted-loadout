@@ -1,0 +1,82 @@
+<div class="wiki">
+  ##Long Guns<br/>
+  <div ng-repeat="perk in vm.perkCategories[0].perks">
+    <br/>
+    ####{{vm.redditIcon(perk.name)}}{{perk.name}} ({{perk.points}} LP)<br/>
+    <span ng-repeat="info in perk.info">- {{info | redditFilter}}<br/></span><br/>
+    <span>
+.| Damage | Shots to Down | Shots to KO<br/>
+-|------|----|--<br/>
+Bodyshot | {{perk.damageStats.bodyDamage}} | {{perk.damageStats.bodyDown}} | {{perk.damageStats.bodyKO}} <br/>
+Headshot | {{perk.damageStats.headDamage}} | {{perk.damageStats.headDown}}  | {{perk.damageStats.headKO}} <br/><br/>
+*Damage stats are estimated*<br/><br/>
+    </span>
+    #####Mods<br/><br/>
+    <span ng-repeat="mod in perk.mods | filter: {hero: false}">* {{mod.name}} (+{{mod.points}} LP)<br/></span><br>
+    #####Hero Weapons<br/>
+    <span ng-repeat="mod in perk.mods | filter: {hero: true}">* {{mod.name}} ({{perk.points + mod.points}} LP) - *{{mod.mods[0].name}} & {{mod.mods[1].name}}*<br/></span>
+  </div><br/>
+  ##Pistols<br/>
+  <div ng-repeat="perk in vm.perkCategories[1].perks">
+    <br/>
+    ####{{vm.redditIcon(perk.name)}}{{perk.name}} ({{perk.points}} LP)<br/>
+    <span ng-repeat="info in perk.info">- {{info | redditFilter}}<br/></span><br/>
+    <span>
+.| Damage | Shots to Down | Shots to KO<br/>
+-|------|----|--<br/>
+Bodyshot | {{perk.damageStats.bodyDamage}} | {{perk.damageStats.bodyDown}} | {{perk.damageStats.bodyKO}} <br/>
+Headshot | {{perk.damageStats.headDamage}} | {{perk.damageStats.headDown}}  | {{perk.damageStats.headKO}} <br/><br/>
+*Damage stats are estimated*<br/><br/>
+    </span>
+    #####Mods<br/><br/>
+    <span ng-repeat="mod in perk.mods | filter: {hero: false}">* {{mod.name}} (+{{mod.points}} LP)<br/></span><br>
+    #####Hero Weapons<br/>
+    <span ng-repeat="mod in perk.mods | filter: {hero: true}">* {{mod.name}} ({{perk.points + mod.points}} LP) - *{{mod.mods[0].name}} & {{mod.mods[1].name}}*<br/></span>
+  </div><br/>
+  ##Mysticals<br/>
+  <div ng-repeat="perk in vm.perkCategories[2].perks[0].perks">
+    <br/>
+    ####{{vm.redditIcon(perk.name)}}{{perk.name}} ({{perk.points}} LP) - ${{perk.cost}}<br/>
+    <span ng-repeat="description in perk.description">{{description | redditFilter}}<br/></span><br/>
+    #####Mods<br/><br/>
+    <span ng-repeat="mod in perk.mods | filter: {hero: false}">* {{mod.name}} (+{{mod.points}} LP)<br/></span><br>
+  </div><br/>
+  ##Gear<br/>
+  <div ng-repeat="perk in vm.perkCategories[2].perks[1].perks">
+    <br/>
+    ####{{vm.redditIcon(perk.name)}}{{perk.name}} ({{perk.points}} LP) - ${{perk.cost}}<br/>
+    <span ng-repeat="description in perk.description">{{description | redditFilter}}<br/></span>
+    #####Upgrades<br/>
+    <span ng-repeat="upgrade in perk.upgrades">- {{upgrade | redditFilter}}<br/></span>
+  </div><br/>
+  ##Heavy Weapons<br/>
+  <div ng-repeat="perk in vm.perkCategories[2].perks[2].perks">
+    <br/>
+    ####{{vm.redditIcon(perk.name)}}{{perk.name}} ({{perk.points}} LP) - ${{perk.cost}}<br/>
+    <span ng-repeat="info in perk.info">- {{info | redditFilter}}<br/></span><br/>
+    <span>
+.| Damage | Shots to Down | Shots to KO<br/>
+-|------|----|--<br/>
+Bodyshot | {{perk.damageStats.bodyDamage}} | {{perk.damageStats.bodyDown}} | {{perk.damageStats.bodyKO}} <br/>
+Headshot | {{perk.damageStats.headDamage}} | {{perk.damageStats.headDown}}  | {{perk.damageStats.headKO}} <br/><br/>
+*Damage stats are estimated*<br/><br/>
+    </span>
+  </div><br/>
+  ##Sidekicks<br/>
+  <div ng-repeat="perk in vm.perkCategories[2].perks[3].perks">
+    <br/>
+    ####{{vm.redditIcon(perk.name)}}{{perk.name}} ({{perk.points}} LP) - ${{perk.cost}}<br/>
+    <span ng-repeat="description in perk.description">{{description | redditFilter}}<br/></span><br/>
+    #####Mods<br/><br/>
+    <span ng-repeat="mod in perk.mods | filter: {hero: false}">* {{mod.name}} (+{{mod.points}} LP)<br/></span><br>
+  </div><br/>
+  ##Boosters<br/>
+  <div ng-repeat="perk in vm.perkCategories[3].perks">
+    <br/>
+    ####{{perk.name}}<br/>
+    <span ng-repeat="description in perk.description">{{description | redditFilter}}<br/></span>
+    <div ng-repeat="level in perk.levels"><br/>#####{{vm.redditIcon(level.name)}}{{level.name}}<br/>
+      <span ng-repeat="info in level.info">- {{info | redditFilter}}<br/></span>
+    </div>
+  </div>
+</div>

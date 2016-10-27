@@ -1,0 +1,8 @@
+<h3 class="loadout-title">Custom  loadout</h3>
+<h4 class="loadout-points">{{26 - loadout.points}}/26 LP</h4>
+<div ng-repeat="perkCat in perkCategories" class="cat-{{perkCat.id}}">
+  <button class="btn btn-perk {{perk.selectedLevel.btnClass || perk.btnClass}}" ng-repeat="perk in loadout.cats[perkCat.id]"
+    ng-click="previewPerk()(perk, perk.selectedLevel)"><img ng-src="{{getPerkImageUrl()(perk)}}" /><span ng-if="!perk.mods || !perk.selectedMod.hero">{{perk.selectedLevel.name || perk.name}}</span><span ng-if="perk.selectedMod.hero">{{perk.selectedMod.name}}</span><img ng-if="perk.selectedMod && !perk.selectedMod.hero" ng-src="{{getModImageUrl()(perk, perk.selectedMod)}}" class="modimage" /><img ng-src="{{getModImageUrl()(perk, subMod)}}" class="modimage" ng-repeat="subMod in perk.selectedMod.mods" /><span class="lp">{{(perk.selectedLevel.points || perk.points) + perk.selectedMod.points}} LP</span></button>
+  <button class="btn" ng-click="selectCat()(perkCat)"
+    ng-hide="loadout.cats[perkCat.id].length >= perkCat.max">Add {{perkCat.name}}</button>
+</div>

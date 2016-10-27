@@ -1,0 +1,27 @@
+<div class="modifications">
+  <h4>Modifications</h4>
+  <button class="btn btn-perk"
+      ng-click="selectPerkModification()(modificationPerk)"
+      ng-mouseover="detailModificationMouseover()(modificationPerk)"
+      ng-class="{active: !modificationPerk.selectedMod}"><img ng-src="{{getPerkImageUrl()(modificationPerk)}}" />None
+    </button>
+  <button class="btn btn-perk {{modificationPerk.btnClass}}" ng-repeat="mod in modificationPerk.mods | filter:{hero: false}"
+      ng-click="detailOrAddModification()(modificationPerk, mod)"
+      ng-mouseover="detailModificationMouseover()(modificationPerk, mod)"
+      ng-class="{active: modificationPerk.selectedMod === mod}">
+      <img ng-src="{{getPerkImageUrl()(modificationPerk)}}" />
+      <img ng-src="{{getModImageUrl()(modificationPerk, mod)}}" class="modimage" />{{mod.name}}
+      <span ng-hide="modificationPerk.selectedMod === mod" class="lp">+{{mod.points}} LP</span>
+      <span ng-show="modificationPerk.selectedMod === mod" class="lp">Equipped</span>
+    </button>
+  <h4>Hero weapons</h4>
+  <button class="btn btn-perk" ng-repeat="mod in modificationPerk.mods | filter:{hero: true}"
+      ng-click="detailOrAddModification()(modificationPerk, mod)"
+      ng-mouseover="detailModificationMouseover()(modificationPerk, mod)"
+      ng-class="{active: modificationPerk.selectedMod === mod}">
+      <img ng-src="{{getPerkImageUrl()(modificationPerk)}}" />
+      <img ng-src="{{getModImageUrl()(modificationPerk, subMod)}}" class="modimage" ng-repeat="subMod in mod.mods" />{{mod.name}}
+      <span ng-hide="modificationPerk.selectedMod === mod" class="lp">{{modificationPerk.points + mod.points}} LP</span>
+      <span ng-show="modificationPerk.selectedMod === mod" class="lp">Equipped</span>
+    </button>
+</div>

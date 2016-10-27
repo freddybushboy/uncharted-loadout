@@ -1,0 +1,16 @@
+// bower:scss
+@import "sassy-maps/sass/_sassy-maps.scss";
+@import "compass-breakpoint/stylesheets/_breakpoint.scss";
+// endbower
+
+@import 'compass';
+
+@import 'variables';
+@import 'fonts';
+@import 'btn';
+@import 'layout';
+@import 'calculator';
+
+*,*:before,*:after {
+  @include box-sizing(border-box);
+}

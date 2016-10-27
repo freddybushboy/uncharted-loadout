@@ -1,0 +1,97 @@
+<div class="perk-detail">
+  <button class="btn btn-detail-back" ng-click="back()()">Back</button>
+  <button class="btn btn-detail-remove" ng-click="removePerk()(perk)" ng-if="!perkCategory && !modificationPerk">Remove</button>
+  <button class="btn btn-detail-remove" ng-click="showModifications()(perk)" ng-if="!perkCategory && perk.mods && !modificationPerk">Modify</button>
+  <button class="btn btn-detail btn-perk {{perk.detailedLevel.btnClass || perk.btnClass}}"
+    ng-click="addPerk()(perk)"
+    ng-disabled="perk.points > (26 - loadout.points) || perk.detailedLevel.points > (26 - loadout.points) || (perk.levels && !perk.detailedLevel)">
+    <img ng-src="{{getPerkImageUrl()(perk)}}" />
+    <img ng-if="perk.selectedMod && !perk.selectedMod.hero && !perk.detailedMod" ng-src="{{getModImageUrl()(perk, perk.selectedMod)}}" class="modimage" />
+    <img ng-src="{{getModImageUrl()(perk, subMod)}}" class="modimage" ng-if="!perk.detailedMod" ng-repeat="subMod in perk.selectedMod.mods" />
+    <img ng-if="perk.detailedMod && !perk.detailedMod.hero" ng-src="{{getModImageUrl()(perk, perk.detailedMod)}}" class="modimage" />
+    <img ng-src="{{getModImageUrl()(perk, subMod)}}" class="modimage" ng-repeat="subMod in perk.detailedMod.mods" />
+    <span ng-if="!perk.mods || (!perk.selectedMod.hero && !perk.detailedMod) || (perk.detailedMod && !perk.detailedMod.hero)">{{perk.detailedLevel.name || perk.name}}</span><span ng-if="perk.detailedMod.hero">{{perk.detailedMod.name}}</span><span ng-if="perk.selectedMod.hero && !perk.detailedMod">{{perk.selectedMod.name}}</span><br/>
+    <span class="lp" ng-if="!perk.mods || (!perk.selectedMod.hero && !perk.detailedMod) || (perk.detailedMod && !perk.detailedMod.hero)">{{perk.detailedLevel.points || perk.points || perk.levels[0].points}} LP</span>
+    <span class="lp" ng-if="perk.selectedMod.hero && !perk.detailedMod">{{perk.points + perk.selectedMod.points}} LP</span>
+    <span class="lp" ng-if="perk.detailedMod.hero">{{perk.points + perk.detailedMod.points}} LP</span>
+    <span ng-if="perk.cost" class="default"> | <span class="cost">${{perk.cost}} In-Game</span></span>
+    </button>
+  <p ng-if="perk.description" ng-repeat="description in perk.description">{{description}}</p>
+  <p ng-if="perk.detailedLevel.description" ng-repeat="description in perk.detailedLevel.description">{{description}}</p>
+  <ul ng-if="perk.stats" class="stats">
+    <li ng-repeat="(key, value) in perk.stats">
+      <label>{{key}}</label>
+      <div class="progress">
+        <span ng-style="{width: (value + perk.selectedMod.stats[key]) * 10 + '%'}" ng-if="!perk.detailedMod && !perk.selectedMod.hero"></span>
+        <span ng-style="{width: (value + perk.detailedMod.stats[key]) * 10 + '%'}" ng-if="perk.detailedMod && !perk.detailedMod.hero"></span>
+        <span ng-style="{width: (value + perk.selectedMod.mods[0].stats[key] + perk.selectedMod.mods[1].stats[key]) * 10 + '%'}" ng-if="!perk.detailedMod && perk.selectedMod.hero"></span>
+        <span ng-style="{width: (value + perk.detailedMod.mods[0].stats[key] + perk.detailedMod.mods[1].stats[key]) * 10 + '%'}" ng-if="perk.detailedMod && perk.detailedMod.hero"></span>
+      </div>
+    </li>
+  </ul>
+  <div ng-if="perk.damageStats" class="damage-stats">
+    <table>
+      <tr>
+        <th></th>
+        <th>Damage</th>
+        <th>Shots to Down</th>
+        <th>Shots to KO</th>
+      </tr>
+      <tr>
+        <th>Headshots</th>
+        <td>{{perk.damageStats.headDamage}}</td>
+        <td>{{perk.damageStats.headDown}}</td>
+        <td>{{perk.damageStats.headKO}}</td>
+      </tr>
+      <tr>
+        <th>Bodyshots</th>
+        <td>{{perk.damageStats.bodyDamage}}</td>
+        <td>{{perk.damageStats.bodyDown}}</td>
+        <td>{{perk.damageStats.bodyKO}}</td>
+      </tr>
+    </table>
+    <p class="small">* Damage stats are estimated</p>
+  </div>
+  <ul ng-if="perk.info && !perk.stats">
+    <li ng-repeat="i in perk.info">{{i}}</li>
+  </ul>
+  <ul ng-if="perk.detailedLevel.info">
+    <li ng-repeat="i in perk.detailedLevel.info">{{i}}</li>
+  </ul>
+  <div ng-if="perk.upgrades">
+    <p>Upgrades:</p>
+    <ol>
+      <li ng-repeat="i in perk.upgrades">{{i}}</li>
+    </ol>
+  </div>
+  <div class="modlist" ng-if="perk.mods">
+    <h4>Modifier:
+      <span ng-if="perk.selectedMod && !perk.detailedMod && !modificationPerk && !perk.selectedMod.hero" class="lp">
+        +{{perk.selectedMod.points}} LP<span ng-if="perk.selectedMod.cost" class="default"> | <span class="cost">+${{perk.selectedMod.cost}}</span></span>
+      </span>
+      <span ng-if="perk.detailedMod && !perk.detailedMod.hero" class="lp">
+        +{{perk.detailedMod.points}} LP<span ng-if="perk.detailedMod.cost" class="default"> | <span class="cost">+${{perk.detailedMod.cost}}</span></span>
+      </span>
+    </h4>
+    <ul>
+      <li><img ng-src="{{getModImageUrl()(perk)}}" class="modimage" /></li>
+      <li ng-repeat="mod in perk.mods | filter:{hero: false}" ng-class="{active: (perk.selectedMod === mod && !perk.detailedMod && !modificationPerk) || perk.detailedMod === mod || perk.detailedMod.mods && (perk.detailedMod.mods[0].name === mod.name || perk.detailedMod.mods[1].name === mod.name) || perk.selectedMod.mods && (perk.selectedMod.mods[0].name === mod.name || perk.selectedMod.mods[1].name === mod.name) && !modificationPerk && !perk.detailedMod}">
+        <img ng-src="{{getModImageUrl()(perk, mod)}}" class="modimage" />
+      </li>
+    </ul>
+  </div>
+  <div ng-if="perk.selectedMod && !perk.detailedMod && !modificationPerk">
+    <h4 ng-if="!perk.selectedMod.hero">{{perk.selectedMod.name}}</h4>
+    <p ng-if="!perk.selectedMod.hero" ng-repeat="info in perk.selectedMod.info">{{info}}</p>
+    <h4 ng-if="perk.selectedMod.hero">{{perk.selectedMod.mods[0].name}} and {{perk.selectedMod.mods[1].name}}</h4>
+  </div>
+  <div ng-if="perk.detailedMod">
+    <h4 ng-if="!perk.detailedMod.hero">{{perk.detailedMod.name}}</h4>
+    <p ng-if="!perk.detailedMod.hero" ng-repeat="info in perk.detailedMod.info">{{info}}</p>
+    <h4 ng-if="perk.detailedMod.hero">{{perk.detailedMod.mods[0].name}} and {{perk.detailedMod.mods[1].name}}</h4>
+    <p>{{perk.detailedMod.description}}</p>
+
+    <button class="btn btn-detail-modification" ng-click="selectPerkModification()(perk, perk.detailedMod)">Add modification</button>
+  </div>
+
+</div>

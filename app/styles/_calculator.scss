@@ -1,0 +1,350 @@
+$header-height: 60px;
+$footer-height: 80px;
+
+.calc-container {
+  width: 100%;
+  height: 100%;
+  @include breakpoint($tab) {
+    height: 100vh;
+    position: relative;
+  }
+}
+.col-header {
+  padding: 0 15px;
+  height: $header-height;
+  line-height: $header-height;
+  h1 {
+    margin: 0;
+    display: inline-block;
+    font-size: 18px;
+  }
+}
+.calc-cols {
+  border-top: 1px solid $border-color;
+  position: absolute;
+  top: $header-height;
+  left: 0;
+  right: 0;
+  bottom: $footer-height;
+}
+.calc-col {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  @include breakpoint($tab) {
+    width: percentage(1/3);
+    left: percentage(1/3);
+    @include transition-property(left);
+    @include transition-delay(1s);
+    &:first-child {
+      left: 0;
+      border-right: 1px solid $border-color;
+    }
+    &:last-child {
+      left: percentage(2/3);
+    }
+    &.preview {
+      left: percentage(1/3);
+      @include transition-delay(0s);
+    }
+  }
+  &.active {
+    z-index: 1;
+    display: block;
+  }
+  display: none;
+  @include breakpoint($tab) {
+    display: block;
+  }
+}
+.category-extra,
+.calc-row {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  @include transition(all .3s ease-in-out);
+}
+.anim-down,
+.anim-left {
+  // Initial state when showing.
+  &.ng-hide-remove {
+    opacity: 0;
+  }
+  // Will transition towards this state.
+  &.ng-hide-remove.ng-hide-remove-active {
+    opacity: 1;
+  }
+  // Initial state when hiding.
+  &.ng-hide-add {
+    opacity: 1;
+  }
+  // Will transition towards this state.
+  &.ng-hide-add.ng-hide-add-active {
+    opacity: 0;
+  }
+}
+@include breakpoint($tab) {
+  .anim-left {
+    // Initial state when showing.
+    &.ng-hide-remove {
+      opacity: 0;
+      @include translateX(-100%);
+    }
+    // Will transition towards this state.
+    &.ng-hide-remove.ng-hide-remove-active {
+      opacity: 1;
+      @include translateX(0%);
+    }
+    // Initial state when hiding.
+    &.ng-hide-add {
+      opacity: 1;
+      @include translateX(0%);
+    }
+    // Will transition towards this state.
+    &.ng-hide-add.ng-hide-add-active {
+      opacity: 0;
+      @include translateX(-100%);
+    }
+  }
+}
+.anim-down {
+  // Initial state when showing.
+  &.ng-hide-remove {
+    opacity: 0;
+    @include translateY(-60%);
+  }
+  // Will transition towards this state.
+  &.ng-hide-remove.ng-hide-remove-active {
+    opacity: 1;
+    @include translateX(0%);
+  }
+  // Initial state when hiding.
+  &.ng-hide-add {
+    opacity: 1;
+    @include translateX(0%);
+  }
+  // Will transition towards this state.
+  &.ng-hide-add.ng-hide-add-active {
+    opacity: 0;
+    @include translateY(-60%);
+  }
+}
+.cat-purchasables,
+.cat-pistols {
+  border-bottom: 1px dashed $border-color;
+}
+.loadout-title,
+.loadout-points {
+  font-size: 18px;
+  display: inline-block;
+  margin: 0 0 10px;
+}
+.loadout-points {
+  float: right;
+  color: $brand-points;
+}
+.perk-detail {
+  h5 {
+    margin-top: 5px;
+  }
+  h4 {
+    margin-bottom: 5px;
+
+    & + p {
+      margin-top: 0;
+    }
+  }
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid $border-color;
+  font-size: 9px;
+  z-index: 20;
+  padding: 5px;
+  height: $footer-height;
+
+  @include breakpoint($tab) {
+    padding: 0;
+    font-size: 11px;
+  }
+
+  .controls {
+    position: relative;
+    @include breakpoint($tab) {
+      float: left;
+      width: percentage(1/3);
+      padding: 6px 10px;
+      margin-top: 15px;
+    }
+  }
+  .disclaimer {
+    @include breakpoint($tab) {
+      float: left;
+      width: percentage(2/3);
+      padding: 6px 10px;
+    }
+    p {
+      margin: 5px 0;
+    }
+  }
+  button {
+    background: transparent;
+    border: none;
+    color: $white;
+    width: percentage(1/3);
+    font-size: 14px;
+    float: left;
+    padding: 5px 0;
+    text-align: left;
+    margin-bottom: 10px;
+    &:disabled {
+      opacity: 0.5;
+    }
+
+    @include breakpoint($tab) {
+      margin-bottom: 0;
+    }
+  }
+  input#shareinput {
+    color: $black;
+    border: none;
+    padding: 7px;
+    background: $white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    @include breakpoint($tab) {
+      top: 6px;
+      left: 10px;
+      right: auto;
+      width: 45%;
+    }
+  }
+}
+.modlist {
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+
+    li {
+      display: inline-block;
+      vertical-align: top;
+      margin: 1px;
+      padding: 1px;
+      border: 2px solid transparent;
+      border-radius: 1px;
+      position: relative;
+
+      &.active {
+        border-color: rgba($white, 0.6);
+      }
+
+      img {
+        width: 25px;
+        height: auto;
+      }
+    }
+  }
+}
+.stats {
+  list-style-type: none;
+  padding: 0;
+  margin: 10px 0;
+  font-size: 0;
+  max-width: 300px;
+  li {
+    margin-bottom: 5px;
+    label {
+      display: inline-block;
+      vertical-align: middle;
+      width: 40%;
+      font-size: 14px;
+    }
+    .progress {
+      display: inline-block;
+      vertical-align: middle;
+      width: 60%;
+      height: 10px;
+      border: 1px solid $white;
+      overflow: hidden;
+
+      span {
+        height: 100%;
+        display: block;
+        background: darken($white, 10%);
+        position: relative;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 100%;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 10px 3px 0 0;
+          border-color: darken($white, 10%) transparent transparent transparent;
+        }
+      }
+    }
+  }
+}
+.modifications {
+  h4 {
+    margin: 15px 0;
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      display: none;
+    }
+  }
+}
+.damage-stats {
+  margin: 15px 0;
+  table {
+    width: 100%;
+    max-width: 300px;
+    border-collapse: collapse;
+    th, td {
+      text-align: center;
+      padding: 3px;
+      border-bottom: 1px solid rgba(#c3bfb2, 0.2);
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    th:first-child {
+      width: 100px;
+      text-align: left;
+    }
+    th {
+      // font-weight: normal;
+    }
+  }
+  .small {
+    font-size: 10px;
+    margin-top: 5px;
+  }
+}
+.nomods {
+  display: none;
+  @include breakpoint($tab) {
+    display: block;
+  }
+  margin-top: 5px;
+  input {
+    margin-left: 0;
+  }
+}
+

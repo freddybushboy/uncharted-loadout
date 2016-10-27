@@ -1,0 +1,42 @@
+@include font-face("Book Antiqua", font-files(
+  "book-antiqua.eot",
+  "book-antiqua.svg",
+  "book-antiqua.ttf",
+  "book-antiqua.woff",
+  "book-antiqua.woff2"
+));
+@include font-face("icons", font-files(
+  "icons.eot",
+  "icons.svg",
+  "icons.ttf",
+  "icons.woff",
+  "icons.woff2"
+));
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icons' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-cog:before {
+  content: "\e023";
+}
+.icon-circle-cross:before {
+  content: "\e043";
+}
+.icon-shuffle:before {
+  content: "\e057";
+}
+.icon-share:before {
+  content: "\e081";
+}

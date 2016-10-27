@@ -1,0 +1,73 @@
+<div class="calc-container">
+  <div class="col-header">
+    <h1>Uncharted 4 Loadout Calculator</h1>
+  </div>
+  <div class="calc-cols">
+    <div class="calc-col" ng-class="{active: vm.colIsActive[0]}">
+      <perk-selection class="calc-row anim-left"
+        select-cat="vm.selectCat"
+        preview-perk="vm.previewPerk"
+        get-perk-image-url="vm.getPerkImageUrl"
+        get-mod-image-url="vm.getModImageUrl"
+        loadout="vm.loadout"
+        perk-categories="vm.perkCategories"></perk-selection>
+    </div>
+    <div class="calc-col" ng-class="{active: vm.colIsActive[1]}">
+      <perk-category class="calc-row anim-left" ng-show="vm.perkCategory"
+        detail-perk="vm.detailPerk"
+        detail-mouseover="vm.detailMouseover"
+        detail-or-add="vm.detailOrAdd"
+        back="vm.backFromCat"
+        preview-level-select="vm.previewLevelSelect"
+        display-level-select="vm.displayLevelSelect"
+        level-select-perk="vm.levelSelectPerk"
+        select-purchasable-category="vm.selectPurchasableCategory"
+        purchasable-category="vm.purchasableCategory"
+        get-purchasable-count="vm.getPurchasableCount"
+        get-perk-image-url="vm.getPerkImageUrl"
+        loadout="vm.loadout"
+        perk-category="vm.perkCategory"></perk-category>
+      <perk-modifications class="calc-row anim-left" ng-show="vm.modificationPerk"
+        back="vm.backFromModifications"
+        loadout="vm.loadout"
+        detail-modification-mouseover="vm.detailModificationMouseover"
+        get-perk-image-url="vm.getPerkImageUrl"
+        get-mod-image-url="vm.getModImageUrl"
+        select-perk-modification="vm.selectPerkModification"
+        detail-or-add-modification="vm.detailOrAddModification"
+        modification-perk="vm.modificationPerk"></perk-modifications>
+    </div>
+    <div class="calc-col" ng-class="{active: vm.colIsActive[2], preview: vm.detailedPerk && !vm.perkCategory && !vm.modificationPerk}">
+      <perk-detail class="calc-row anim-left" ng-show="vm.detailedPerk"
+        add-perk="vm.addPerk"
+        loadout="vm.loadout"
+        perk-category="vm.perkCategory"
+        back="vm.backFromDetail"
+        remove-perk="vm.removePerk"
+        show-modifications="vm.showModifications"
+        get-perk-image-url="vm.getPerkImageUrl"
+        get-mod-image-url="vm.getModImageUrl"
+        select-perk-modification="vm.selectPerkModification"
+        perk="vm.detailedPerk"
+        modification-perk="vm.modificationPerk"></perk-detail>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="controls">
+      <button ng-click="vm.randomLoadout()"><i class="icon-shuffle"></i> Random</button>
+      <button ng-click="vm.resetLoadout()" ng-disabled="!vm.shareLink"><i class="icon-circle-cross"></i> Clear</button>
+      <button ng-click="showShare = !showShare" ng-disabled="!vm.shareLink" onClick="setTimeout(function(){document.getElementById('shareinput').select();}, 200);"><i class="icon-share"></i> Share</button>
+      <input id="shareinput" ng-model="vm.shareLink" ng-show="showShare" ng-blur="showShare = false" />
+      <div class="nomods">
+        <label>
+          <input type="checkbox" ng-model="vm.nomods" /> Don't put Mods or Hero weapons in random loadouts
+        </label>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <p>Built by <a href="http://twitter.com/freddybushboy">FreddyBushBoy</a>. Please send any bug reports <a href="mailto:mail@fredparke.com">here</a>.</p>
+      <p>Uncharted is copyright of “Naughty Dog” - © “Naughty Dog” All rights reserved.</p>
+    </div>
+  </div>
+</div>

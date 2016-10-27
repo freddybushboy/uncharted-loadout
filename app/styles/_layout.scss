@@ -1,0 +1,41 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+  background: $background-color image-url('background.jpg');
+  background-size: cover;
+  color: $text-color;
+  font-family: $font-family-base;
+  font-size: 14px;
+  font-weight: 300;
+  overflow: hidden;
+}
+body {
+  zoom: 100.1%;
+}
+h1,h2,h3,h4,h5,h6 {
+  font-family: $headings-font-family;
+  font-weight: 300;
+}
+ol,
+ul {
+  padding-left: 18px;
+}
+a {
+  color: $brand-points;
+}
+.wiki {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+}
