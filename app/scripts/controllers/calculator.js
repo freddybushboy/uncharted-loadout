@@ -231,7 +231,7 @@ angular.module('unchartedLoadoutApp')
           url += '-1';
         }
       }
-      url += '.png?v=5';
+      url += '.png?v=6';
 
       return url;
     };

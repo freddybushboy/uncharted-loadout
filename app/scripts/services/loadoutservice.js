@@ -8,23 +8,9 @@
  * Service in the unchartedLoadoutApp.
  */
 angular.module('unchartedLoadoutApp')
-  .service('loadoutService', function ($http, $location, $q, mockFactory) {
-
-    var prod = ($location.host() !== 'localhost');
+  .service('loadoutService', function () {
 
     function loadoutService() {}
-
-    loadoutService.test = function() {
-      if (prod) {
-        return $http.get('/api/test');
-      } else {
-        var deferred = $q.defer();
-
-        deferred.resolve(mockFactory.test());
-
-        return deferred.promise;
-      }
-    };
 
     function populateMods(perks) {
       var mods = [
@@ -1417,6 +1403,222 @@ angular.module('unchartedLoadoutApp')
             'Reload Speed',
             'Clip Capacity'
           ]
+        },
+        {
+          id: 13,
+          name: 'Rafe\'s M4',
+          hero: true,
+          mods: [
+            'Reload Speed',
+            'Clip Capacity'
+          ]
+        },
+        {
+          id: 14,
+          name: 'Sam\'s M4',
+          hero: true,
+          mods: [
+            'Silencer',
+            'Reload Speed'
+          ]
+        },
+        {
+          id: 15,
+          name: 'Nadine\'s M4',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Aimed Strafe Speed'
+          ]
+        },
+        {
+          id: 16,
+          name: 'Sully\'s M4',
+          hero: true,
+          mods: [
+            'Reload Speed',
+            'Blindfire Accuracy'
+          ]
+        },
+        {
+          id: 17,
+          name: 'Elena\'s M4',
+          hero: true,
+          mods: [
+            'Clip Capacity',
+            'Silencer'
+          ]
+        },
+        {
+          id: 18,
+          name: 'Drake\'s M4',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Blindfire Accuracy'
+          ]
+        },
+        {
+          id: 13,
+          name: 'Rafe\'s PAK-80',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Recoil'
+          ]
+        },
+        {
+          id: 14,
+          name: 'Sam\'s PAK-80',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Silencer'
+          ]
+        },
+        {
+          id: 15,
+          name: 'Nadine\'s PAK-80',
+          hero: true,
+          mods: [
+            'Aimed Strafe Speed',
+            'Blindfire Accuracy'
+          ]
+        },
+        {
+          id: 16,
+          name: 'Sully\'s PAK-80',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Blindfire Accuracy'
+          ]
+        },
+        {
+          id: 17,
+          name: 'Elena\'s PAK-80',
+          hero: true,
+          mods: [
+            'Recoil',
+            'Aimed Strafe Speed'
+          ]
+        },
+        {
+          id: 18,
+          name: 'Drake\'s PAK-80',
+          hero: true,
+          mods: [
+            'Reload Speed',
+            'Blindfire Accuracy'
+          ]
+        },
+        {
+          id: 13,
+          name: 'Rafe\'s Micro 9mm',
+          hero: true,
+          mods: [
+            'Clip Capacity',
+            'Silencer'
+          ]
+        },
+        {
+          id: 14,
+          name: 'Sam\'s Micro 9mm',
+          hero: true,
+          mods: [
+            'Reload Speed',
+            'Recoil'
+          ]
+        },
+        {
+          id: 15,
+          name: 'Nadine\'s Micro 9mm',
+          hero: true,
+          mods: [
+            'Silencer',
+            'Blindfire Accuracy'
+          ]
+        },
+        {
+          id: 16,
+          name: 'Sully\'s Micro 9mm',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Recoil'
+          ]
+        },
+        {
+          id: 17,
+          name: 'Elena\'s Micro 9mm',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Accuracy'
+          ]
+        },
+        {
+          id: 18,
+          name: 'Drake\'s Micro 9mm',
+          hero: true,
+          mods: [
+            'Silencer',
+            'Blindfire Accuracy'
+          ]
+        },
+        {
+          id: 13,
+          name: 'Rafe\'s Para 9',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Silencer'
+          ]
+        },
+        {
+          id: 14,
+          name: 'Sam\'s Para 9',
+          hero: true,
+          mods: [
+            'Clip Capacity',
+            'Silencer'
+          ]
+        },
+        {
+          id: 15,
+          name: 'Nadine\'s Para 9',
+          hero: true,
+          mods: [
+            'Clip Capacity',
+            'Blindfire Accuracy'
+          ]
+        },
+        {
+          id: 16,
+          name: 'Sully\'s Para 9',
+          hero: true,
+          mods: [
+            'Reload Speed',
+            'Blindfire Accuracy'
+          ]
+        },
+        {
+          id: 17,
+          name: 'Elena\'s Para 9',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Reload Speed'
+          ]
+        },
+        {
+          id: 18,
+          name: 'Drake\'s Para 9',
+          hero: true,
+          mods: [
+            'Reload Speed',
+            'Clip Capacity'
+          ]
         }
       ];
 
@@ -2023,12 +2225,84 @@ angular.module('unchartedLoadoutApp')
               ['Aimed Strafe Speed', 3],
               ['Clip Capacity',4],
               ['Recoil', 4],
+              ['Drake\'s Harrison 1890', 7],
               ['Sully\'s Harrison 1890', 4],
               ['Rafe\'s Harrison 1890', 6],
               ['Sam\'s Harrison 1890', 7],
-              ['Drake\'s Harrison 1890', 7],
               ['Nadine\'s Harrison 1890', 9],
               ['Elena\'s Harrison 1890', 8],
+            ]
+          },{
+            id: 180,
+            name: 'M4',
+            points: 5,
+            info: [
+              'Fully Automatic mid to long range rifle'
+            ],
+            stats: {
+              'Recoil': 9,
+              'Accuracy': 8.8,
+              'Damage': 2,
+              'Range': 8,
+              'Fire rate': 9
+            },
+            damageStats: {
+              'bodyDamage': '?',
+              'headDamage': '?',
+              'bodyDown': '?',
+              'headDown': '?',
+              'bodyKO': '?',
+              'headKO': '?'
+            },
+            mods: [
+              ['Starting Ammo', 1],
+              ['Reload Speed', 2],
+              ['Blindfire Accuracy', 3],
+              ['Clip Capacity',3],
+              ['Silencer', 4],
+              ['Aimed Strafe Speed', 3],
+              ['Drake\'s M4', 5],
+              ['Sully\'s M4', 6],
+              ['Sam\'s M4', 7],
+              ['Elena\'s M4', 8],
+              ['Nadine\'s M4', 5],
+              ['Rafe\'s M4', 6],
+            ]
+          },{
+            id: 181,
+            name: 'PAK-80',
+            points: 5,
+            info: [
+              'Light machine gun. Recoil and accuracy improved while in cover'
+            ],
+            stats: {
+              'Recoil': 5,
+              'Accuracy': 6,
+              'Damage': 4.5,
+              'Range': 6,
+              'Fire rate': 5.5
+            },
+            damageStats: {
+              'bodyDamage': '?',
+              'headDamage': '?',
+              'bodyDown': '?',
+              'headDown': '?',
+              'bodyKO': '?',
+              'headKO': '?'
+            },
+            mods: [
+              ['Starting Ammo', 2],
+              ['Silencer', 4],
+              ['Blindfire Accuracy', 3],
+              ['Aimed Strafe Speed', 3],
+              ['Accuracy', 4],
+              ['Recoil', 4],
+              ['Sully\'s PAK-80', 6],
+              ['Rafe\'s PAK-80', 7],
+              ['Sam\'s PAK-80', 7],
+              ['Drake\'s PAK-80', 8],
+              ['Nadine\'s PAK-80', 7],
+              ['Elena\'s PAK-80', 8],
             ]
           }]
         },
@@ -2447,6 +2721,78 @@ angular.module('unchartedLoadoutApp')
               ['Sully\'s RKL-155', 3],
               ['Sam\'s RKL-155', 4],
               ['Nadine\'s RKL-155', 4]
+            ]
+          },{
+            id: 182,
+            name: 'Micro 9mm',
+            points: 2,
+            info: [
+              'Fully automatic close range pistol'
+            ],
+            stats: {
+              'Recoil': 4,
+              'Accuracy': 6,
+              'Damage': 1,
+              'Range': 2,
+              'Fire rate': 9.8
+            },
+            damageStats: {
+              'bodyDamage': '?',
+              'headDamage': '?',
+              'bodyDown': '?',
+              'headDown': '?',
+              'bodyKO': '?',
+              'headKO': '?'
+            },
+            mods: [
+              ['Starting Ammo', 1],
+              ['Reload Speed', 1],
+              ['Silencer', 2],
+              ['Blindfire Accuracy', 3],
+              ['Clip Capacity', 2],
+              ['Recoil', 2],
+              ['Accuracy', 2],
+              ['Drake\'s Micro 9mm', 4],
+              ['Sully\'s Micro 9mm', 3],
+              ['Nadine\'s Micro 9mm', 5],
+              ['Elena\'s Micro 9mm', 3],
+              ['Rafe\'s Micro 9mm', 4],
+              ['Sam\'s Micro 9mm', 3],
+            ]
+          },{
+            id: 183,
+            name: 'Para 9',
+            points: 1,
+            info: [
+              'Semi-auto close range pistol'
+            ],
+            stats: {
+              'Recoil': 9,
+              'Accuracy': 8,
+              'Damage': 6,
+              'Range': 4.5,
+              'Fire rate': 8.5
+            },
+            damageStats: {
+              'bodyDamage': '?',
+              'headDamage': '?',
+              'bodyDown': '?',
+              'headDown': '?',
+              'bodyKO': '?',
+              'headKO': '?'
+            },
+            mods: [
+              ['Starting Ammo', 1],
+              ['Reload Speed', 1],
+              ['Blindfire Accuracy', 2],
+              ['Silencer', 2],
+              ['Clip Capacity', 2],
+              ['Elena\'s Para 9', 2],
+              ['Drake\'s Para 9', 3],
+              ['Rafe\'s Para 9', 3],
+              ['Sully\'s Para 9', 3],
+              ['Sam\'s Para 9', 4],
+              ['Nadine\'s Para 9', 4],
             ]
           }]
         },
@@ -2972,6 +3318,27 @@ angular.module('unchartedLoadoutApp')
                 'Damage': 4,
                 'Range': 1,
                 'Fire rate': 9.5
+              },
+              damageStats: {
+                'bodyDamage': '?',
+                'headDamage': '?',
+                'bodyDown': '?',
+                'headDown': '?',
+                'bodyKO': '?',
+                'headKO': '?'
+              }
+            },{
+              id: 184,
+              name: 'Desert 5',
+              points: 4,
+              cost: 700,
+              btnClass: 'btn-perk-heavy',
+              stats: {
+                'Recoil': 3,
+                'Accuracy': 7,
+                'Damage': 9.5,
+                'Range': 9.8,
+                'Fire rate': 3.5
               },
               damageStats: {
                 'bodyDamage': '?',
