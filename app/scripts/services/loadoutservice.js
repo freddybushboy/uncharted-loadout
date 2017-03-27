@@ -1562,7 +1562,7 @@ angular.module('unchartedLoadoutApp')
           name: 'Drake\'s Micro 9mm',
           hero: true,
           mods: [
-            'Silencer',
+            'Reload Speed',
             'Blindfire Accuracy'
           ]
         },
@@ -1618,6 +1618,168 @@ angular.module('unchartedLoadoutApp')
           mods: [
             'Reload Speed',
             'Clip Capacity'
+          ]
+        },
+        {
+          id: 13,
+          name: 'Rafe\'s Krivosk-XS',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Clip Capacity'
+          ]
+        },
+        {
+          id: 14,
+          name: 'Sam\'s Krivosk-XS',
+          hero: true,
+          mods: [
+            'Reload Speed',
+            'Recoil'
+          ]
+        },
+        {
+          id: 15,
+          name: 'Nadine\'s Krivosk-XS',
+          hero: true,
+          mods: [
+            'Reload Speed',
+            'Blindfire Accuracy'
+          ]
+        },
+        {
+          id: 16,
+          name: 'Sully\'s Krivosk-XS',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Reload Speed'
+          ]
+        },
+        {
+          id: 17,
+          name: 'Elena\'s Krivosk-XS',
+          hero: true,
+          mods: [
+            'Silencer',
+            'Clip Capacity'
+          ]
+        },
+        {
+          id: 18,
+          name: 'Drake\'s Krivosk-XS',
+          hero: true,
+          mods: [
+            'Silencer',
+            'Blindfire Accuracy'
+          ]
+        },
+        {
+          id: 13,
+          name: 'Rafe\'s INSAS',
+          hero: true,
+          mods: [
+            'Clip Capacity',
+            'Silencer'
+          ]
+        },
+        {
+          id: 14,
+          name: 'Sam\'s INSAS',
+          hero: true,
+          mods: [
+            'Reload Speed',
+            'Clip Capacity'
+          ]
+        },
+        {
+          id: 15,
+          name: 'Nadine\'s INSAS',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Blindfire Accuracy'
+          ]
+        },
+        {
+          id: 16,
+          name: 'Sully\'s INSAS',
+          hero: true,
+          mods: [
+            'Reload Speed',
+            'Recoil'
+          ]
+        },
+        {
+          id: 17,
+          name: 'Elena\'s INSAS',
+          hero: true,
+          mods: [
+            'Clip Capacity',
+            'Aimed Strafe Speed'
+          ]
+        },
+        {
+          id: 18,
+          name: 'Drake\'s INSAS',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Silencer'
+          ]
+        },
+        {
+          id: 13,
+          name: 'Rafe\'s Type 95',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Recoild'
+          ]
+        },
+        {
+          id: 14,
+          name: 'Sam\'s Type 95',
+          hero: true,
+          mods: [
+            'Clip Capacity',
+            'Recoil'
+          ]
+        },
+        {
+          id: 15,
+          name: 'Nadine\'s Type 95',
+          hero: true,
+          mods: [
+            'Reload Speed',
+            'Clip Capacity'
+          ]
+        },
+        {
+          id: 16,
+          name: 'Sully\'s Type 95',
+          hero: true,
+          mods: [
+            'Reload Speed',
+            'Silencer'
+          ]
+        },
+        {
+          id: 17,
+          name: 'Elena\'s Type 95',
+          hero: true,
+          mods: [
+            'Reload Speed',
+            'Blindfire Accuracy'
+          ]
+        },
+        {
+          id: 18,
+          name: 'Drake\'s Type 95',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Aimed Strafe Speed'
           ]
         }
       ];
@@ -2304,6 +2466,80 @@ angular.module('unchartedLoadoutApp')
               ['Nadine\'s PAK-80', 7],
               ['Elena\'s PAK-80', 8],
             ]
+          },{
+            id: 186,
+            name: 'INSAS',
+            points: 5,
+            info: [
+              'Fully automatic mid range rifle'
+            ],
+            stats: {
+              'Recoil': 4,
+              'Accuracy': 5,
+              'Damage': 3,
+              'Range': 6,
+              'Fire rate': 5
+            },
+            damageStats: {
+              'bodyDamage': '?',
+              'headDamage': '?',
+              'bodyDown': '?',
+              'headDown': '?',
+              'bodyKO': '?',
+              'headKO': '?'
+            },
+            mods: [
+              ['Starting Ammo', 1],
+              ['Reload Speed', 2],
+              ['Blindfire Accuracy', 3],
+              ['Clip Capacity', 3],
+              ['Silencer', 4],
+              ['Aimed Strafe Speed', 3],
+              ['Recoil', 4],
+              ['Drake\'s INSAS', 6],
+              ['Sully\'s INSAS', 7],
+              ['Sam\'s INSAS', 6],
+              ['Elena\'s INSAS', 7],
+              ['Nadine\'s INSAS', 5],
+              ['Rafe\'s INSAS', 8],
+            ]
+          },{
+            id: 187,
+            name: 'Type 95',
+            points: 5,
+            info: [
+              'Fully automatic mid to long range rifle'
+            ],
+            stats: {
+              'Recoil': 8,
+              'Accuracy': 9,
+              'Damage': 5,
+              'Range': 8,
+              'Fire rate': 4
+            },
+            damageStats: {
+              'bodyDamage': '?',
+              'headDamage': '?',
+              'bodyDown': '?',
+              'headDown': '?',
+              'bodyKO': '?',
+              'headKO': '?'
+            },
+            mods: [
+              ['Starting Ammo', 1],
+              ['Reload Speed', 2],
+              ['Blindfire Accuracy', 3],
+              ['Silencer', 4],
+              ['Clip Capacity', 3],
+              ['Aimed Strafe Speed', 3],
+              ['Recoil', 4],
+              ['Elena\'s Type 95', 6],
+              ['Drake\'s Type 95', 5],
+              ['Sam\'s Type 95', 8],
+              ['Sully\'s Type 95', 7],
+              ['Rafe\'s Type 95', 6],
+              ['Nadine\'s Type 95', 6],
+            ]
           }]
         },
         {
@@ -2793,6 +3029,42 @@ angular.module('unchartedLoadoutApp')
               ['Sully\'s Para 9', 3],
               ['Sam\'s Para 9', 4],
               ['Nadine\'s Para 9', 4],
+            ]
+          },{
+            id: 185,
+            name: 'Krivosk-XS',
+            points: 1,
+            info: [
+              'Semi-auto mid to long range variable pistol'
+            ],
+            stats: {
+              'Recoil': 7,
+              'Accuracy': 9,
+              'Damage': 4,
+              'Range': 10,
+              'Fire rate': 7.5
+            },
+            damageStats: {
+              'bodyDamage': '?',
+              'headDamage': '?',
+              'bodyDown': '?',
+              'headDown': '?',
+              'bodyKO': '?',
+              'headKO': '?'
+            },
+            mods: [
+              ['Starting Ammo', 1],
+              ['Reload Speed', 1],
+              ['Blindfire Accuracy', 2],
+              ['Silencer', 2],
+              ['Clip Capacity', 2],
+              ['Recoil', 2],
+              ['Sully\'s Krivosk-XS', 2],
+              ['Nadine\'s Krivosk-XS', 3],
+              ['Rafe\'s Krivosk-XS', 4],
+              ['Drake\'s Krivosk-XS', 4],
+              ['Sam\'s Krivosk-XS', 3],
+              ['Elena\'s Krivosk-XS', 4],
             ]
           }]
         },
