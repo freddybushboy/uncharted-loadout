@@ -1734,7 +1734,7 @@ angular.module('unchartedLoadoutApp')
           hero: true,
           mods: [
             'Starting Ammo',
-            'Recoild'
+            'Recoil'
           ]
         },
         {
@@ -1780,6 +1780,114 @@ angular.module('unchartedLoadoutApp')
           mods: [
             'Starting Ammo',
             'Aimed Strafe Speed'
+          ]
+        },
+        {
+          id: 13,
+          name: 'Rafe\'s Carrigan 53',
+          hero: true,
+          mods: [
+            'Reload Speed',
+            'Clip Capacity'
+          ]
+        },
+        {
+          id: 14,
+          name: 'Sam\'s Carrigan 53',
+          hero: true,
+          mods: [
+            'Silencer',
+            'Aimed Strafe Speed'
+          ]
+        },
+        {
+          id: 15,
+          name: 'Nadine\'s Carrigan 53',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Silencer'
+          ]
+        },
+        {
+          id: 16,
+          name: 'Sully\'s Carrigan 53',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Silencer'
+          ]
+        },
+        {
+          id: 17,
+          name: 'Elena\'s Carrigan 53',
+          hero: true,
+          mods: [
+            'Clip Capacity',
+            'Silencer'
+          ]
+        },
+        {
+          id: 18,
+          name: 'Drake\'s Carrigan 53',
+          hero: true,
+          mods: [
+            'Reload Speed',
+            'Blindfire Accuracy'
+          ]
+        },
+        {
+          id: 13,
+          name: 'Rafe\'s GX3-9',
+          hero: true,
+          mods: [
+            'Silencer',
+            'Clip Capacity'
+          ]
+        },
+        {
+          id: 14,
+          name: 'Sam\'s GX3-9',
+          hero: true,
+          mods: [
+            'Reload Speed',
+            'Silencer'
+          ]
+        },
+        {
+          id: 15,
+          name: 'Nadine\'s GX3-9',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Aimed Strafe Speed'
+          ]
+        },
+        {
+          id: 16,
+          name: 'Sully\'s GX3-9',
+          hero: true,
+          mods: [
+            'Reload Speed',
+            'Recoil'
+          ]
+        },
+        {
+          id: 17,
+          name: 'Elena\'s GX3-9',
+          hero: true,
+          mods: [
+            'Blindfire Accuracy',
+            'Clip Capacity'
+          ]
+        },
+        {
+          id: 18,
+          name: 'Drake\'s GX3-9',
+          hero: true,
+          mods: [
+            'Starting Ammo',
+            'Reload Speed'
           ]
         }
       ];
@@ -2540,6 +2648,79 @@ angular.module('unchartedLoadoutApp')
               ['Rafe\'s Type 95', 6],
               ['Nadine\'s Type 95', 6],
             ]
+          },{
+            id: 188,
+            name: 'Carrigan 53',
+            points: 5,
+            info: [
+              'Fully automatic mid range rifle'
+            ],
+            stats: {
+              'Recoil': 8,
+              'Accuracy': 8,
+              'Damage': 2,
+              'Range': 7.5,
+              'Fire rate': 8
+            },
+            damageStats: {
+              'bodyDamage': '?',
+              'headDamage': '?',
+              'bodyDown': '?',
+              'headDown': '?',
+              'bodyKO': '?',
+              'headKO': '?'
+            },
+            mods: [
+              ['Starting Ammo', 1],
+              ['Reload Speed', 2],
+              ['Blindfire Accuracy', 3],
+              ['Clip Capacity', 3],
+              ['Silencer', 4],
+              ['Aimed Strafe Speed', 3],
+              ['Sully\'s Carrigan 53', 5],
+              ['Drake\'s Carrigan 53', 6],
+              ['Rafe\'s Carrigan 53', 7],
+              ['Elena\'s Carrigan 53', 8],
+              ['Nadine\'s Carrigan 53', 5],
+              ['Sam\'s Carrigan 53', 6]
+            ]
+          },{
+            id: 189,
+            name: 'GX3-9',
+            points: 5,
+            info: [
+              'Two round burst close range rifle'
+            ],
+            stats: {
+              'Recoil': 4.5,
+              'Accuracy': 5.5,
+              'Damage': 3,
+              'Range': 7.5,
+              'Fire rate': 8
+            },
+            damageStats: {
+              'bodyDamage': '?',
+              'headDamage': '?',
+              'bodyDown': '?',
+              'headDown': '?',
+              'bodyKO': '?',
+              'headKO': '?'
+            },
+            mods: [
+              ['Starting Ammo', 1],
+              ['Reload Speed', 2],
+              ['Silencer', 4],
+              ['Blindfire Accuracy', 3],
+              ['Aimed Strafe Speed', 3],
+              ['Clip Capacity', 3],
+              ['Recoil', 4],
+              ['Drake\'s GX3-9', 5],
+              ['Elena\'s GX3-9', 6],
+              ['Sam\'s GX3-9', 7],
+              ['Nadine\'s GX3-9', 8],
+              ['Rafe\'s GX3-9', 5],
+              ['Sully\'s GX3-9', 6]
+            ]
           }]
         },
         {
@@ -2549,7 +2730,7 @@ angular.module('unchartedLoadoutApp')
           perks: [{
             id: 111,
             name: 'Aegis 9mm',
-            points: 0,
+            points: 1,
             info: [
               'Semi automatic pistol',
               'Close range',
@@ -2578,7 +2759,7 @@ angular.module('unchartedLoadoutApp')
               ['Silencer', 2],
               ['Blindfire Accuracy', 1],
               ['Clip Capacity', 1],
-              ['Drake\'s Aegis 9mm', 2],
+              ['Drake\'s Aegis 9mm', 3],
               ['Sully\'s Aegis 9mm', 2],
               ['Nadine\'s Aegis 9mm', 3]
             ]
@@ -4620,7 +4801,7 @@ angular.module('unchartedLoadoutApp')
             btnClass: 'btn-perk-booster',
             levels: [{
               name: 'Weapons Expert 1',
-              points: 1,
+              points: 3,
               level: 1,
               btnClass: 'btn-perk-booster',
               info: [
@@ -4629,7 +4810,7 @@ angular.module('unchartedLoadoutApp')
             },
             {
               name: 'Weapons Expert 2',
-              points: 2,
+              points: 4,
               level: 2,
               btnClass: 'btn-perk-booster',
               info: [
