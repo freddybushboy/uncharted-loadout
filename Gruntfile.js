@@ -240,8 +240,8 @@ module.exports = function (grunt) {
         javascriptsDir: '<%= yeoman.app %>/scripts',
         fontsDir: '<%= yeoman.app %>/styles/fonts',
         importPath: './bower_components',
-        httpFontsPath: '/styles/fonts',
-        httpImagesPath: '/images',
+        httpFontsPath: '/uncharted-loadout/styles/fonts',
+        httpImagesPath: '/uncharted-loadout/images',
         httpGeneratedImagesPath: '/images/generated',
         relativeAssets: false,
         assetCacheBuster: false,
@@ -265,10 +265,6 @@ module.exports = function (grunt) {
         src: [
           '<%= yeoman.dist %>/scripts/{,*/}*.js',
           '<%= yeoman.dist %>/styles/{,*/}*.css',
-          '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '!<%= yeoman.dist %>/images/perks/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '!<%= yeoman.dist %>/images/mods/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= yeoman.dist %>/styles/fonts/*'
         ]
       }
     },

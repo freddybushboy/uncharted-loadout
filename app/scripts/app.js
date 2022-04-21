@@ -23,14 +23,16 @@ angular
     });
 
     $routeProvider
-      .when('/uncharted-loadout', {
+      .when('/', {
         templateUrl: 'views/calculator.html',
         controller: 'CalculatorCtrl',
         controllerAs: 'vm',
         reloadOnSearch: false
-      })
-      .otherwise({
-        redirectTo: '/uncharted-loadout'
+      }).when('/:name', {
+        templateUrl: 'views/calculator.html',
+        controller: 'CalculatorCtrl',
+        controllerAs: 'vm',
+        reloadOnSearch: false
       });
   })
   .filter('redditFilter', function () {
@@ -54,7 +56,7 @@ angular
       restrict: 'E',
       link: function (scope, element) {
         element.bind('error', function() {
-            var url = 'images/perks/default.png';
+            var url = '/uncharted-loadout/images/perks/default.png';
             element.prop('src', url);
         });
       }

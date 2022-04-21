@@ -216,7 +216,7 @@ angular.module('unchartedLoadoutApp')
       if (!perk) {
         return;
       }
-      var url = 'images/perks/u4-';
+      var url = '/uncharted-loadout/images/perks/u4-';
 
       if (perk.detailedLevel) {
         url += perk.detailedLevel.name.replace(/\s+/g, '-').replace('.', '').toLowerCase();
@@ -241,7 +241,7 @@ angular.module('unchartedLoadoutApp')
         return;
       }
 
-      var url = 'images/mods/mod-';
+      var url = '/uncharted-loadout/images/mods/mod-';
 
       if (mod && perk.btnClass === 'btn-perk-mystical') {
         url += 'mystical-';
@@ -380,7 +380,7 @@ angular.module('unchartedLoadoutApp')
         });
       });
       if (vm.saveArray.length > 0) {
-        vm.shareLink = 'http://'+$location.host()+'?q='+vm.saveArray.toString();
+        vm.shareLink = 'https://freddybushboy.github.io/uncharted-loadout?q='+vm.saveArray.toString();
         $location.search('q', vm.saveArray.toString());
       }
       else {
