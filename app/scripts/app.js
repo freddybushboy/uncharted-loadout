@@ -23,24 +23,14 @@ angular
     });
 
     $routeProvider
-      .when('/', {
+      .when('/uncharted-loadout', {
         templateUrl: 'views/calculator.html',
         controller: 'CalculatorCtrl',
         controllerAs: 'vm',
         reloadOnSearch: false
       })
-      .when('/wiki', {
-        templateUrl: 'views/wiki.html',
-        controller: 'WikiCtrl',
-        controllerAs: 'vm'
-      })
-      .when('/bot', {
-        templateUrl: 'views/bot.html',
-        controller: 'BotCtrl',
-        controllerAs: 'vm'
-      })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/uncharted-loadout'
       });
   })
   .filter('redditFilter', function () {
